@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang= “ja”>
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript超入門</title>
+  </head>
+
+  <body>
+    <div id="first">1個目のdivタグ</div>
+    <div id="second">2個目のdivタグ</div>
+    <div id="third">3個目のdivタグ</div>
+
+    <button id="btn">申し込む</button>
+
+    <button id="btn_cor">色を変える</button>
+
+    <script>
+      const btn_cor = document.getElementById("btn_cor")
+        btn_cor.addEventListener("click", function(){
+            document.getElementById("first").style.fontSize="50px";
+         
+        })
+
+    </script>
+  </body>
+</html>

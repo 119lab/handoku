@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>判読さとみのご案内</title>
+    <meta name="description" content="SNS用の短い案内動画を制作するサービス" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- ファビコン -->
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+
+    <!-- リセットCSS -->
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+
+    <!-- Googleフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- オリジナルCSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      .btn-menu {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        color: rgb(7, 7, 7);
+        padding: 0.5rem 1rem;
+        z-index: 1;
+      }
+
+      .main-nav {
+        width: 0;
+        position: absolute;
+        top: 25px;
+        right: 0;
+        overflow: hidden;
+        transition: 0.5s;
+        display: block;
+      }
+      .main-nav li {
+        text-align: center;
+        margin: 0;
+        line-height: 1.2;
+      }
+
+      .main-nav a {
+        display: block;
+      }
+      .main-nav.open-menu {
+        width: 200px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p class="font-english align-center">Welcome to Satomi’s Announcement</p>
+    <div class="cover cover-home">
+      <header class="page-header wrapper">
+        <!--<h1 class="align-center">
+          <a href="index.html"
+            ><img
+              class="logo"
+              src="images/favicon.png"ファビコン付きロゴ
+              alt="判読さとみのご案内 ホーム"
+          /></a>
+        </h1>-->
+        <nav style="position: relative; margin-left: auto">
+          <button class="btn-menu">Menu</button>
+          <ul class="main-nav font-english">
+            <li><a href="news.html">News</a></li>
+            <li><a href="service.html">Service</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="recruit.html">Recruit</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+    <section class="about">
+      <h3 class="heading-large font-english">Service overview</h3>
+      <p>
+        イベントや講座、商品・サービスの情報を、キャラクター、文字、静止画、ナレーション、BGMを組み合わせた動画にまとめます。
+      </p>
+      <div class="align-center">
+        <a class="btn" href="service.html">サービス内容を見る</a>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <div class="copyright">
+        <small>&copy; 2010 HANDOKU SATOMI</small>
+      </div>
+    </footer>
+    <script>
+      const btn = document.querySelector(".btn-menu");
+      const nav = document.querySelector(".main-nav");
+
+      btn.addEventListener("click", () => {
+        nav.classList.toggle("open-menu");
+        if (btn.innerHTML === "Menu") {
+          btn.innerHTML = "Close";
+        } else {
+          btn.innerHTML = "Menu";
+        }
+      });
+    </script>
+  </body>
+</html>
