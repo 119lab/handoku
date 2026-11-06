@@ -21,93 +21,323 @@
     />
 
     <!-- オリジナルCSS -->
-    <link rel="stylesheet" href="css/style.css" />
-
+    <link rel="stylesheet" href="css/style.css?v=20261106-footer-clear" />
     <style>
-      .btn-menu {
-        position: absolute;
-        top: 12px;
-        right: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        color: rgb(7, 7, 7);
-        padding: 0.5rem 1rem;
-        z-index: 1;
+      /* ファビコンとロゴを一列に配置 */
+      .home-page .top-header .page-header {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+        gap: 0.75rem;
       }
-
-      .main-nav {
-        width: 0;
-        position: absolute;
-        top: 25px;
-        right: 0;
-        overflow: hidden;
-        transition: 0.5s;
+      .home-page .top-header .header-logo {
+        min-width: 0;
+        width: 100%;
+      }
+      .home-page .top-header .header-logo a {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .home-page .top-header .header-logo .logo:first-child {
+        flex: 0 0 auto;
+        width: clamp(32px, 5vw, 64px);
+        height: auto;
+      }
+      .home-page .top-header .header-logo .logo:last-child {
+        flex: 0 1 auto;
+        width: 220px;
+        max-width: calc(100% - clamp(32px, 5vw, 64px) - 0.5rem);
+        min-width: 0;
+        height: auto;
+      }
+      @media (max-width: 599px) {
+        .home-page .top-header .page-header {
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 64px;
+          gap: 0.5rem;
+        }
+        .home-page .top-header .top-welcome {
+          font-size: 0.75rem;
+        }
+      }
+      /* ヘッダーの内容を幅1120px以内に収める */
+      .home-page .top-header .page-header {
+        width: 100%;
+        max-width: 1120px;
+        margin-inline: auto;
+        box-sizing: border-box;
+      }
+      .home-page .consultation-heading {
         display: block;
-      }
-      .main-nav li {
+        width: 100%;
+        max-width: 1120px;
+        margin: 3rem auto 1.5rem;
+        padding-inline: 1.5rem;
+        box-sizing: border-box;
         text-align: center;
-        margin: 0;
-        line-height: 1.2;
+        font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+        line-height: 1.5;
       }
-
-      .main-nav a {
+      /* 開いたメニューをタイトル画像より前面に */
+      .home-page .top-header {
+        position: relative;
+        z-index: 100;
+        overflow: visible;
+      }
+      .home-page .top-header .header-overlay,
+      .home-page .top-header .page-header,
+      .home-page .top-header .site-nav {
+        overflow: visible;
+      }
+      .home-page .top-header .main-nav {
+        position: absolute;
+        z-index: 101;
+      }
+      /* タイトルの文字と画像を各カラムの中央に揃える */
+      .home-page .hero-layout {
+        position: relative;
+        z-index: 0;
+        justify-items: center;
+        align-items: center;
+        margin-inline: auto;
+      }
+      .home-page .hero-layout .taitle_side_comment,
+      .home-page .hero-layout .taitle_side_comment .align-center {
+        width: 100%;
+        text-align: center;
+      }
+      .home-page .hero-layout .cover-home {
+        margin-inline: auto;
+      }
+      .home-page .hero-layout .title-image {
         display: block;
-      }
-      .main-nav.open-menu {
-        width: 200px;
+        margin-inline: auto;
       }
     </style>
   </head>
+  <!-- body -->
+  <body class="home-page">
+    <div class="top-header">
+      <img
+        class="top-header-image"
+        src="images/header_cover.png"
+        width="2048"
+        height="209"
+        alt=""
+      />
+      <div class="header-overlay">
+        <header class="page-header wrapper">
+          <div class="header-logo">
+            <a href="index.html"
+              ><img
+                class="logo"
+                src="images/favicon.png"
+                alt="判読さとみのご案内 ホーム"
+              />
+              <img
+                class="logo"
+                src="images/satomi_logo.png"
+                alt="判読さとみのご案内 ロゴ"
+              />
+            </a>
+          </div>
+          <p class="top-welcome font-english">
+            Welcome to Satomi’s Announcement
+          </p>
+          <!--ナビゲーションメニュー-->
+          <nav class="site-nav" aria-label="メインメニュー">
+            <button
+              class="btn-menu"
+              type="button"
+              aria-expanded="false"
+              aria-controls="main-menu"
+            >
+              Menu
+            </button>
+            <ul id="main-menu" class="main-nav font-english" hidden>
+              <li><a href="index.html">ホーム</a></li>
+              <li><a href="service.html">サービス</a></li>
+              <li><a href="price.html">料金</a></li>
+              <li><a href="faq.html">よくあるご質問</a></li>
+              <li><a href="contact.html">お問い合わせ</a></li>
+              <li><a href="recruit.html">採用情報</a></li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+    </div>
+    <div class="hero-layout">
+      <div class="taitle_side_comment">
+        <p>写真と文章から、短い動画へ。</p>
+        <h1>
+          伝えたい情報を、<br />
+          15秒・30秒の動画に。
+        </h1>
+        <h3>
+          イベント告知・商品紹介・講座案内に。<br />
+          構成・編集・ナレーション・BGM込み。<br />
+          15秒20,000円／30秒30,000円（税別）
+        </h3>
+      </div>
 
-  <body>
-    <p class="font-english align-center">Welcome to Satomi’s Announcement</p>
-    <div class="cover cover-home">
-      <header class="page-header wrapper">
-        <!--<h1 class="align-center">
-          <a href="index.html"
-            ><img
-              class="logo"
-              src="images/favicon.png"ファビコン付きロゴ
-              alt="判読さとみのご案内 ホーム"
-          /></a>
-        </h1>-->
-        <nav style="position: relative; margin-left: auto">
-          <button class="btn-menu">Menu</button>
-          <ul class="main-nav font-english">
-            <li><a href="news.html">News</a></li>
-            <li><a href="service.html">Service</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="recruit.html">Recruit</a></li>
-          </ul>
-        </nav>
-      </header>
+      <div class="cover cover-home">
+        <img
+          class="title-image"
+          src="images/satomi_title01.png"
+          alt="判読さとみのご案内"
+        />
+      </div>
     </div>
 
-    <section class="about">
-      <h3 class="heading-large font-english">Service overview</h3>
-      <p>
-        イベントや講座、商品・サービスの情報を、キャラクター、文字、静止画、ナレーション、BGMを組み合わせた動画にまとめます。
-      </p>
+    <main>
+      <section class="about" aria-labelledby="about-title">
+        <h2 id="about-title" class="heading-large">サービス概要</h2>
+        <p>
+          イベントや講座、商品・サービスの情報を、キャラクター、文字、静止画、ナレーション、BGMを組み合わせた動画にまとめます。
+        </p>
+      </section>
+
+      <section class="video-samples wrapper" aria-labelledby="samples-title">
+        <h2 id="samples-title" class="heading-large">制作サンプル</h2>
+        <p>用途・尺・画面の向きから、仕上がりをご確認いただけます。</p>
+        <div class="video-grid">
+          <figure class="video-item">
+            <video
+              src="video/satomi_15sec_16x9.mp4"
+              autoplay
+              muted
+              playsinline
+              loop
+              controls
+              aria-label="横型動画サンプル1"
+            ></video>
+            <figcaption>
+              縦型サンプル01<br />
+              イベント告知<br />
+              15秒／横型<br />
+            </figcaption>
+          </figure>
+          <figure class="video-item">
+            <video
+              src="video/satomi_15sec_9x16.mp4"
+              autoplay
+              muted
+              playsinline
+              loop
+              controls
+              aria-label="縦型動画サンプル"
+            ></video>
+            <figcaption>
+              縦型サンプル<br />
+              商品・サービス紹介<br />
+              30秒／縦型<br />
+            </figcaption>
+          </figure>
+          <figure class="video-item">
+            <video
+              src="video/satomi_15sec_16x9.mp4"
+              autoplay
+              muted
+              playsinline
+              loop
+              controls
+              aria-label="横型動画サンプル2"
+            ></video>
+            <figcaption>
+              横型サンプル02<br />
+              講座・セミナー案内<br />
+              30秒／横型<br />
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      <!-- ボタン　-->
       <div class="align-center">
+        <a class="btn" href="">ほかのサンプルを見る</a>
+      </div>
+
+      <section class="features wrapper" aria-labelledby="features-title">
+        <h2 id="features-title" class="heading-large">
+          伝えたい内容を、見やすく整理します。
+        </h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <h3>15秒・30秒に対応</h3>
+            <p>掲載先に合わせて<br />縦型・横型を制作</p>
+          </div>
+          <div class="feature-item">
+            <h3>写真などは最大5点</h3>
+            <p>写真と文章を組み合わせて<br />伝えたい情報を整理</p>
+          </div>
+          <div class="feature-item">
+            <h3>外見・BGMを選択</h3>
+            <p>キャラクターと音楽で<br />伝えたい雰囲気に</p>
+          </div>
+        </div>
+      </section>
+
+      <h2 class="consultation-heading">
+        動画にしたい内容から、相談いただけます。
+      </h2>
+
+      <div class="align-center">
+        <a class="btn" href="contact.html">制作を相談する</a>
         <a class="btn" href="service.html">サービス内容を見る</a>
       </div>
-    </section>
-
+    </main>
+    <!-- footer -->
     <footer class="page-footer">
       <div class="copyright">
-        <small>&copy; 2010 HANDOKU SATOMI</small>
+        <nav class="footer-row" aria-label="フッターメニュー">
+          <a href="index.html">判読さとみのご案内</a>
+          <a href="company.html">会社概要</a>
+          <a href="recruit.html">採用情報</a>
+          <a href="privacy.html">個人情報の取り扱い</a>
+        </nav>
+        <div class="footer-row">
+          <a
+            href="https://www.instagram.com/shindenzu.master/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram</a
+          >
+          <a
+            href="https://x.com/shindenzumaster/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >X（旧Twitter）</a
+          >
+          <a
+            href="https://www.youtube.com/@shindenzu.master"
+            target="_blank"
+            rel="noopener noreferrer"
+            >YouTube</a
+          >
+          <small>&copy; 2026 HANDOKU SATOMI</small>
+        </div>
       </div>
     </footer>
+    <!-- スクリプト-->
     <script>
-      const btn = document.querySelector(".btn-menu");
-      const nav = document.querySelector(".main-nav");
+      const menuButton = document.querySelector(".btn-menu");
+      const menu = document.querySelector("#main-menu");
+      const navigation = document.querySelector(".site-nav");
 
-      btn.addEventListener("click", () => {
-        nav.classList.toggle("open-menu");
-        if (btn.innerHTML === "Menu") {
-          btn.innerHTML = "Close";
-        } else {
-          btn.innerHTML = "Menu";
+      function setMenuOpen(open) {
+        menu.hidden = !open;
+        menuButton.setAttribute("aria-expanded", String(open));
+        menuButton.textContent = open ? "Close" : "Menu";
+      }
+
+      menuButton.addEventListener("click", () => {
+        setMenuOpen(menuButton.getAttribute("aria-expanded") !== "true");
+      });
+      document.addEventListener("click", (event) => {
+        if (!navigation.contains(event.target)) setMenuOpen(false);
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !menu.hidden) {
+          setMenuOpen(false);
+          menuButton.focus();
         }
       });
     </script>

@@ -36,8 +36,9 @@ img {
 .page-title,
 .heading-large,
 .heading-medium {
-  font-size: rem;
+  font-size: 2rem;
   text-align: center;
+  color: rgb(11, 86, 79);
 }
 .page-title {
   margin-top: 2rem;
@@ -96,7 +97,7 @@ iframe {
 .cover {
   background-size: cover;
   background-position: center bottom;
-  height: 400px;
+  width: 800px;
 }
 .sub-cover {
   background-size: cover;
@@ -108,11 +109,12 @@ iframe {
 /* HOME
 ------------------------------- */
 .cover-home {
-  background-image: url(../images/title_yoko.webp);
-  background-size: contain;
+  background-image: url(../images/header_cover.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .about {
-  max-width: 736px;
+  max-width: 1120px;
   padding: 0 1.5rem;
   margin: 3rem auto 0;
 }
@@ -250,8 +252,10 @@ iframe {
 /* フッター
 ------------------------------- */
 .page-footer {
-  background-image: url(../images/footer-s.webp);
-  background-size: cover;
+  background-image: url(../images/footer_cover.png);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  margin: auto;
   background-position: center;
   padding-top: 12rem;
 }
@@ -313,10 +317,6 @@ iframe {
   }
 
   /* HOME */
-  .cover-home {
-    background-image: url(../images/title_yoko.webp);
-    background-size: contain;
-  }
   .about {
     margin: 4rem auto 0;
   }
@@ -387,10 +387,400 @@ iframe {
 
   /* フッター */
   .page-footer {
-    background-image: url(../images/footer-l.webp);
-    padding-top: 12rem;
+    background-image: url(../images/footer_cover.png);
+    padding-top: 40rem;
+    width: 100%;
   }
   .info th {
     padding-left: 2.5rem;
   }
+}
+
+/* トップページ専用：全体は画面幅、本文は読みやすい幅に */
+.home-page,
+.home-page * {
+  box-sizing: border-box;
+}
+body.home-page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+.home-page .cover-home {
+  /* 画像全体を表示し、画面幅に合わせて高さを調整 */
+  height: auto;
+  min-height: 180px;
+  aspect-ratio: 2048 / 682;
+  background-size: 100% auto;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+.home-page .page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+.home-page .site-nav {
+  position: relative;
+  margin-left: auto;
+  z-index: 10;
+}
+.home-page .btn-menu {
+  padding: 0.65rem 1.25rem;
+  border: 1px solid #d3dedb;
+  border-radius: 8px;
+  background: #fff;
+  color: #432;
+  font: inherit;
+  cursor: pointer;
+}
+.home-page .main-nav {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  display: block;
+  width: min(320px, calc(100vw - 3rem));
+  padding: 0.5rem;
+  margin: 0;
+  border: 1px solid #d3dedb;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 24px #00000014;
+  font-size: 1.125rem;
+  list-style: none;
+}
+.home-page .main-nav[hidden] {
+  display: none;
+}
+.home-page .main-nav li {
+  margin: 0;
+  line-height: 1.5;
+}
+.home-page .main-nav a {
+  display: block;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+}
+.home-page .main-nav a:hover {
+  background: #f0f8f6;
+}
+.home-page a:focus-visible,
+.home-page button:focus-visible {
+  outline: 3px solid #007e87;
+  outline-offset: 4px;
+}
+.home-page .about {
+  width: 100%;
+  max-width: 960px;
+  margin: clamp(3rem, 6vw, 5rem) auto 0;
+  padding-inline: 1.5rem;
+}
+.home-page .heading-large {
+  margin: 0 0 1.5rem;
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  line-height: 1.4;
+}
+.home-page .about p {
+  margin: 0 0 2rem;
+  line-height: 2;
+}
+.home-page .btn {
+  max-width: 100%;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  text-align: center;
+}
+.home-page .page-footer {
+  width: 100%;
+  margin-top: 3rem;
+  padding-top: clamp(12rem, 32vw, 28rem);
+  background-position: center top;
+}
+.home-page .copyright {
+  margin-top: 0;
+  padding: 1.5rem;
+}
+
+/* タイトル画像はトリミングせず全体を表示 */
+.home-page .cover-home {
+  position: relative;
+  height: auto;
+  min-height: 0;
+  max-width: 800px;
+  aspect-ratio: auto;
+}
+.home-page .title-image {
+  display: block;
+  width: 100px;
+  height: auto;
+}
+.home-page .header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* 文字は左、人物は右。二つのカラム全体を中央に配置 */
+.home-page .header-overlay {
+  position: relative;
+  width: 100%;
+}
+.home-page .hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding: 2rem 1.5rem;
+}
+.home-page .taitle_side_comment {
+  min-width: 0;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.home-page .taitle_side_comment .align-center {
+  text-align: left;
+}
+.home-page .taitle_side_comment h1 {
+  margin-block: 1rem;
+  font-size: 2rem;
+  line-height: 1.5;
+}
+.home-page .taitle_side_comment h3 {
+  font-size: 1rem;
+  font-weight: normal;
+}
+.home-page .hero-layout .cover-home {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+.home-page .hero-layout .title-image {
+  width: calc(100% * 2 / 3);
+  height: auto;
+  object-fit: contain;
+}
+@media (max-width: 799px) {
+  .home-page .hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+  .home-page .taitle_saide_comment,
+  .home-page .taitle_saide_comment .align-center {
+    text-align: center;
+  }
+}
+
+/* 最上段のヘッダー画像：全幅・トリミングなし */
+.home-page .top-header-image {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  margin: 0;
+}
+.home-page .hero-layout .cover-home {
+  background-image: none;
+}
+
+/* ヘッダー画像と、その上に重なる三つの要素 */
+.home-page .top-header {
+  display: grid;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+}
+.home-page .top-header > .top-header-image,
+.home-page .top-header > .header-overlay {
+  grid-area: 1 / 1;
+}
+.home-page .top-header > .top-header-image {
+  position: static;
+  display: block;
+  width: 100%;
+  height: auto;
+  align-self: end;
+  z-index: 0;
+}
+.home-page .top-header > .header-overlay {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+.home-page .top-header .page-header {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr) 100px;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  min-height: 120px;
+  padding: 0.75rem 1.5rem;
+}
+.home-page .header-logo {
+  display: block;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  justify-self: start;
+}
+.home-page .header-logo a {
+  display: block;
+}
+.home-page .top-header .logo {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  width: 80px;
+  height: auto;
+  max-width: 100%;
+}
+.home-page .top-header .top-welcome {
+  position: static;
+  transform: none;
+  width: auto;
+  margin: 0;
+  text-align: center;
+  font-size: clamp(0.875rem, 2.2vw, 1.75rem);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.home-page .top-header .site-nav {
+  justify-self: end;
+  margin: 0;
+}
+@media (max-width: 599px) {
+  .home-page .top-header .page-header {
+    grid-template-columns: 64px minmax(0, 1fr) 64px;
+    min-height: 90px;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  .home-page .top-header .logo {
+    width: 48px;
+  }
+  .home-page .top-header .btn-menu {
+    padding: 0.5rem 0.65rem;
+  }
+}
+
+/* 制作サンプル：PCは3列、スマホは1列 */
+.home-page .video-samples {
+  margin: 4rem auto 0;
+}
+.home-page .video-samples > p {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.home-page .video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+.home-page .video-grid video {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  height: 320px;
+  object-fit: contain;
+  background: #000;
+  border-radius: 8px;
+}
+@media (max-width: 799px) {
+  .home-page .video-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .home-page .video-grid video {
+    height: auto;
+    max-height: 70vh;
+  }
+}
+
+/* 特徴の文字をPCで3列、スマホで1列に */
+.home-page .features {
+  margin: 4rem auto;
+}
+.home-page .features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  text-align: center;
+}
+.home-page .feature-item {
+  min-width: 0;
+  padding: 1.5rem 1rem;
+}
+.home-page .feature-item h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+.home-page .footer-brand {
+  margin-bottom: 1rem;
+}
+.home-page .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1rem;
+}
+.home-page .copyright a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.home-page .copyright a:hover {
+  color: #a5f3d5;
+}
+@media (max-width: 799px) {
+  .home-page .features-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.5rem;
+  }
+}
+
+/* フッター画像の上にリンクと著作権表記を2行で表示 */
+.home-page .page-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: clamp(180px, 18vw, 300px);
+  padding: 3rem 0 1.5rem;
+  background-image: url(../images/footer_cover.png);
+  background-size: cover;
+  background-position: center bottom;
+}
+.home-page .page-footer .copyright {
+  width: 100%;
+  margin: 0;
+  padding: 0 0.5rem;
+  background: transparent;
+  color: #173f36;
+  font-size: clamp(8px, 2.2vw, 16px);
+  text-shadow: 0 1px 2px #fff;
+}
+.home-page .footer-row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(4px, 1.5vw, 24px);
+  margin: 0;
+  white-space: nowrap;
+}
+.home-page .footer-row + .footer-row {
+  margin-top: 0.75rem;
+}
+.home-page .footer-row small {
+  font-size: inherit;
+}
+.home-page .copyright a:hover {
+  color: #005348;
 }
