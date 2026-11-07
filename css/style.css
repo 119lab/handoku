@@ -55,7 +55,7 @@ main { padding: 24px 0 40px; }
   align-items: center;
   gap: 10px;
 }
-.header-logo img:first-child { width: 44px; }
+.header-logo img:first-child { width: 44px; border-radius: 8px; }
 .header-logo img:last-child { width: 180px; }
 .top-welcome { margin: 0; font-size: 12px; }
 .site-nav { width: 100%; }
@@ -363,12 +363,14 @@ main { padding: 24px 0 40px; }
   border-radius: 6px;
 }
 .step-number { font-weight: bold; color: #087e63; }
+/* 共通のボタン配置：スマホでは縦並び */
 .service-ctas {
   display: flex;
   flex-direction: column;
   gap: 16px;
   margin: 28px 0;
 }
+/* 共通ボタン：色は .btn-primary / .btn-secondary で指定 */
 .btn {
   display: block;
   padding: 14px 24px;
@@ -401,6 +403,7 @@ main { padding: 24px 0 40px; }
   border: 1px solid #a9c7bb;
   border-radius: 6px;
 }
+/* 入力欄は Grid で並べ、PC表示で2列にする */
 .contact-form-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -463,7 +466,7 @@ main { padding: 24px 0 40px; }
 .accordion-question {
   display: block;
   width: 100%;
-  padding: 1.25rem 2.5rem 1.25rem 1em;
+  padding: 1.25rem 2.5rem 1.25rem 0;
   color: #432;
   background-color: #f0f8f5;
   border: none;
@@ -673,7 +676,6 @@ main { padding: 24px 0 40px; }
   margin: 2rem auto 0;
 }
 .service-page .service-ctas .btn {
-  display: block;
   border: 1px solid #078029;
   border-radius: 999px;
   padding: .65rem 1rem;
@@ -830,7 +832,7 @@ main { padding: 24px 0 40px; }
   .service-ctas .btn { flex: 1; }
 }
 
-/* 画面幅・動きの調整（既存の表示・アニメーションを維持）
+/* 画面幅ごとの細かな調整（既存の見た目を維持）
 ------------------------------- */
 @media (max-width: 599px) {
   .home-page .top-header .page-header {
@@ -849,14 +851,14 @@ main { padding: 24px 0 40px; }
   .service-page .top-header .top-welcome { font-size: 0.75rem; }
 }
 
-/* 画面幅・動きの調整（既存の表示・アニメーションを維持）
+/* 画面幅ごとの細かな調整（既存の見た目を維持）
 ------------------------------- */
 @media (max-width: 600px) {
   .recruit-table th, .recruit-table td { padding: 10px; }
   .recruit-table th { width: 35%; }
 }
 
-/* 画面幅・動きの調整（既存の表示・アニメーションを維持）
+/* 画面幅ごとの細かな調整（既存の見た目を維持）
 ------------------------------- */
 @media (max-width: 700px) {
   .home-page .home-cta-buttons { gap: 0.65rem; }
@@ -884,7 +886,7 @@ main { padding: 24px 0 40px; }
   .service-page .service-ctas .btn { font-size: 1rem; }
 }
 
-/* 画面幅・動きの調整（既存の表示・アニメーションを維持）
+/* 画面幅ごとの細かな調整（既存の見た目を維持）
 ------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   .home-page .home-slide-track { transition: none; }
@@ -944,9 +946,7 @@ main { padding: 24px 0 40px; }
   .company-table th { width: 32%; }
 }
 
-/* ファビコンと採用情報の画像を角丸にする
-------------------------------- */
-.header-logo img:first-child { border-radius: 8px; }
+/* 採用情報の画像は角丸にする */
 .recruit-hero { border-radius: 16px; }
 
 /* トップページ：タイトル下に約1行分の余白 */
@@ -973,4 +973,40 @@ main { padding: 24px 0 40px; }
   margin: 0 auto;
   font-size: 1rem;
   text-align: center;
+}
+
+/* 制作サンプル：スマホは縦1列、PCは横3列 */
+.home-page .video-samples .video-grid {
+  display: grid;
+  grid-template-columns: 160px;
+  justify-content: center;
+  gap: 20px;
+  max-width: 520px;
+  margin: 24px auto;
+}
+.home-page .video-samples .video-item {
+  width: 160px;
+  margin: 0;
+}
+.home-page .video-samples .video-item video {
+  display: block;
+  width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+}
+@media (min-width: 800px) {
+  .home-page .video-samples .video-grid {
+    grid-template-columns: repeat(3, 160px);
+  }
+}
+
+/* iPhone横向き：Safariでも動画を3列にする
+------------------------------- */
+@media (orientation: landscape) and (min-width: 600px) {
+  .home-page .video-samples .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 160px);
+    justify-content: center;
+    max-width: 520px;
+  }
 }
