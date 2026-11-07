@@ -1,243 +1,129 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <title>よくあるご質問 | 判読さとみのご案内</title>
-    <meta name="description" content="判読さとみの動画制作サービスに関するよくあるご質問をご案内します。">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<meta charset="utf-8"/>
+<title>【架空】よくあるご質問 | 判読さとみのご案内</title>
+<meta content="判読さとみの動画制作サービスに関するよくあるご質問をご案内します。" name="description"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- ファビコン -->
+<link href="images/favicon.webp" rel="icon" type="image/webp"/>
+<!-- リセットCSS -->
+<link href="https://unpkg.com/ress/dist/ress.min.css" rel="stylesheet"/>
+<!-- Googleフォント -->
 
-    <!-- ファビコン -->
-    <link rel="icon" type="image/webp" href="images/favicon.webp">
 
-    <!-- リセットCSS -->
-    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
 
-    <!-- Googleフォント -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Philosopher&amp;display=swap" rel="stylesheet">
-
-    <!-- オリジナルCSS -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <style>
-      .faq-kicker { margin: 0 0 .2rem; color: #00852c; font: 1.2rem "Philosopher", sans-serif; letter-spacing: .04em; }
-      .faq-title { margin: .25rem 0 .55rem; color: #555; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.25; }
-      .faq-lead { margin: 0 0 1.4rem; color: #555; line-height: 1.7; }
-
-      /* アコーディオン全体 */
-      .faq {
-        max-width: 736px;
-        margin: 0 auto 5rem;
-        padding: 0 1.5rem;
-      }
-
-      /* 1つのQ&Aブロック */
-      .accordion-item {
-        border-bottom: 1px solid #ddd;
-      }
-
-      /* 質問ボタン */
-      .accordion-question {
-        width: 100%;
-        text-align: left;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 1.25rem 2.5rem 1.25rem 0;
-        font-size: 1.1rem;
-        font-family: inherit;
-        color: #432;
-        position: relative;
-        line-height: 1.6;
-      }
-
-      /* 矢印アイコン */
-      .accordion-question::after {
-        content: "▼";
-        position: absolute;
-        right: 0.5rem;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 0.75rem;
-        color: #078029;
-        transition: transform 0.3s;
-      }
-
-      /* 開いたときに矢印を反転 */
-      .accordion-question.is-open::after {
-        transform: translateY(-50%) rotate(180deg);
-      }
-
-      /* 回答（初期状態：非表示） */
-      .accordion-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
-      }
-
-      /* 回答（開いた状態） */
-      .accordion-answer.is-open {
-        max-height: 1200px;
-      }
-
-      .accordion-answer p {
-        padding: 0 0.5rem 1.25rem;
-        color: #666;
-        line-height: 1.8;
-      }
-
-      /* Q / A ラベル */
-      .label-q,
-      .label-a {
-        display: inline-block;
-        font-family: "Philosopher", sans-serif;
-        font-size: 1.1rem;
-        font-weight: bold;
-        margin-right: 0.5rem;
-      }
-      .label-q {
-        color: #078029;
-      }
-      .label-a {
-        color: #432;
-      }
-    </style>
-  </head>
-
-  <body class="service-page">
-    <div class="top-header">
-<img class="top-header-image" src="images/header_cover.webp" width="1120" height="114" alt=""><div class="header-overlay">
+<!-- オリジナルCSS -->
+<link href="css/style.css" rel="stylesheet"/>
+</head>
+<body class="service-page">
+<div class="top-header">
+<img alt="" class="top-header-image" height="114" src="images/header_cover.webp" width="1120"/><div class="header-overlay">
 <header class="page-header wrapper">
-          <div class="header-logo">
-            <a href="index.html"><img class="logo" src="images/favicon.webp" alt="判読さとみのご案内 ホーム">
-              <img class="logo" src="images/satomi_logo.webp" alt="判読さとみのご案内 ロゴ">
-            </a>
-          </div>
-          <p class="top-welcome font-english">
+<div class="header-logo">
+<a href="index.html"><img alt="判読さとみのご案内 ホーム" class="logo" src="images/favicon.webp"/>
+<img alt="判読さとみのご案内 ロゴ" class="logo" src="images/satomi_logo.webp"/>
+</a>
+</div>
+<p class="top-welcome font-english">
             Welcome to Satomi’s Announcement
           </p>
-          <!--ナビゲーションメニュー-->
-          <nav class="site-nav" aria-label="メインメニュー">
-            <button class="btn-menu" type="button" aria-expanded="false" aria-controls="main-menu">
+<!--ナビゲーションメニュー-->
+<nav aria-label="メインメニュー" class="site-nav">
+<button aria-controls="main-menu" aria-expanded="false" class="btn-menu" type="button">
               Menu
             </button>
-            <ul id="main-menu" class="main-nav font-english" hidden="">
-              <li><a href="index.html">ホーム</a></li>
-              <li><a href="service.html">サービス</a></li>
-              <li><a href="price.html">料金</a></li>
-              <li><a href="faq.html">よくあるご質問</a></li>
-              <li><a href="contact.html">お問い合わせ</a></li>
-              <li><a href="recruit.html">採用情報</a></li>
-            </ul>
-          </nav>
-        </header>
-      </div>
+<ul class="main-nav font-english" hidden="" id="main-menu">
+<li><a href="index.html">ホーム</a></li>
+<li><a href="service.html">サービス</a></li>
+<li><a href="price.html">料金</a></li>
+<li><a href="faq.html">よくあるご質問</a></li>
+<li><a href="contact.html">お問い合わせ</a></li>
+<li><a href="recruit.html">採用情報</a></li>
+</ul>
+</nav>
+</header>
 </div>
-    <main class="faq">
-      <section aria-labelledby="faq-title">
-        <p class="faq-kicker">FAQ</p>
-        <h1 id="faq-title" class="faq-title">よくあるご質問</h1>
-        <p class="faq-lead">ご依頼前によくいただくご質問をまとめました。</p>
-        <div class="accordion-list">
-          <div class="accordion-item">
-            <button class="accordion-question" type="button" aria-expanded="false" aria-controls="faq-answer-1"><span class="label-q">Q.</span>どのような動画を依頼できますか？</button>
-            <div class="accordion-answer" id="faq-answer-1"><p><span class="label-a">A.</span>商品・サービスの紹介、イベントや講座の告知など、SNSやWebサイトに掲載する15秒・30秒の動画を制作します。</p></div>
-          </div>
-          <div class="accordion-item">
-            <button class="accordion-question" type="button" aria-expanded="false" aria-controls="faq-answer-2"><span class="label-q">Q.</span>料金はいくらですか？</button>
-            <div class="accordion-answer" id="faq-answer-2"><p><span class="label-a">A.</span>15秒動画は20,000円、30秒動画は30,000円です。静止画1枚は10,000円、30秒動画＋静止画1枚のセットは36,000円です。すべて税別です。</p></div>
-          </div>
-          <div class="accordion-item">
-            <button class="accordion-question" type="button" aria-expanded="false" aria-controls="faq-answer-3"><span class="label-q">Q.</span>基本料金には何が含まれますか？</button>
-            <div class="accordion-answer" id="faq-answer-3"><p><span class="label-a">A.</span>構成・動画編集・ナレーション・BGM・納品前の通常修正1回が含まれます。</p></div>
-          </div>
-          <div class="accordion-item">
-            <button class="accordion-question" type="button" aria-expanded="false" aria-controls="faq-answer-4"><span class="label-q">Q.</span>依頼するときは何を用意すればよいですか？</button>
-            <div class="accordion-answer" id="faq-answer-4"><p><span class="label-a">A.</span>紹介内容と、文章・写真・ロゴなどの素材をご用意ください。掲載先・希望納期・動画の向きもお知らせください。</p></div>
-          </div>
-          <div class="accordion-item">
-            <button class="accordion-question" type="button" aria-expanded="false" aria-controls="faq-answer-5"><span class="label-q">Q.</span>写真は何点まで使えますか？</button>
-            <div class="accordion-answer" id="faq-answer-5"><p><span class="label-a">A.</span>動画1本につき、写真などの静止画は最大5点です。6点以上を使用する制作は承っておりません。</p></div>
-          </div>
-          <div class="accordion-item">
-            <button class="accordion-question" type="button" aria-expanded="false" aria-controls="faq-answer-6"><span class="label-q">Q.</span>キャラクターの外見やBGMは選べますか？</button>
-            <div class="accordion-answer" id="faq-answer-6"><p><span class="label-a">A.</span>キャラクターの外見とBGMは、それぞれ8種類からお選びいただけます。</p></div>
-          </div>
-          <div class="accordion-item">
-            <button class="accordion-question" type="button" aria-expanded="false" aria-controls="faq-answer-7"><span class="label-q">Q.</span>縦型と横型の両方を作れますか？</button>
-            <div class="accordion-answer" id="faq-answer-7"><p><span class="label-a">A.</span>はい。同じ内容で両方を制作する場合、15秒動画は追加10,000円、30秒動画は追加20,000円です。追加料金は税別です。</p></div>
-          </div>
-          <div class="accordion-item">
-            <button class="accordion-question" type="button" aria-expanded="false" aria-controls="faq-answer-8"><span class="label-q">Q.</span>修正はできますか？</button>
-            <div class="accordion-answer" id="faq-answer-8"><p><span class="label-a">A.</span>納品前の通常修正は1回まで基本料金に含みます。2回目以降は1回2,500円〜、構成変更・作り直しなどの大幅変更は10,000円〜です。内容確認後、作業前に提示します（税別）。</p></div>
-          </div>
-          <div class="accordion-item">
-            <button class="accordion-question" type="button" aria-expanded="false" aria-controls="faq-answer-9"><span class="label-q">Q.</span>納期はどれくらいですか？</button>
-            <div class="accordion-answer" id="faq-answer-9"><p><span class="label-a">A.</span>ご希望の納期をお知らせください。制作内容と素材の準備状況を確認し、着手前にご案内します。</p></div>
-          </div>
-          <div class="accordion-item">
-            <button class="accordion-question" type="button" aria-expanded="false" aria-controls="faq-answer-10"><span class="label-q">Q.</span>どのような形式で納品されますか？</button>
-            <div class="accordion-answer" id="faq-answer-10"><p><span class="label-a">A.</span>掲載先に合わせて、動画の制作サイズと納品形式を事前に確認します。</p></div>
-          </div>
-          <div class="accordion-item">
-            <button class="accordion-question" type="button" aria-expanded="false" aria-controls="faq-answer-11"><span class="label-q">Q.</span>支払い方法・支払い時期は？</button>
-            <div class="accordion-answer" id="faq-answer-11"><p><span class="label-a">A.</span>お支払い方法と時期は、お見積もり時にご案内します。</p></div>
-          </div>
-          <div class="accordion-item">
-            <button class="accordion-question" type="button" aria-expanded="false" aria-controls="faq-answer-12"><span class="label-q">Q.</span>納品後も修正できますか？</button>
-            <div class="accordion-answer" id="faq-answer-12"><p><span class="label-a">A.</span>納品後の修正は、内容を確認のうえ、対応可否と費用を別途ご案内します。</p></div>
-          </div>
-          <div class="accordion-item">
-            <button class="accordion-question" type="button" aria-expanded="false" aria-controls="faq-answer-13"><span class="label-q">Q.</span>AIを使用していますか？</button>
-            <div class="accordion-answer" id="faq-answer-13"><p><span class="label-a">A.</span>文章・画像・音楽などの制作補助にAIを活用し、構成や編集、人による確認を加えて仕上げます。</p></div>
-          </div>
-        </div>
-      </section>
-      <div class="service-ctas service-ctas--single">
-        <a class="btn btn-primary" href="contact.html">制作を相談する</a>
-      </div>
-    </main>
-
-    <script>
-      document.querySelectorAll(".accordion-question").forEach((question) => {
-        const answer = document.getElementById(question.getAttribute("aria-controls"));
-        question.addEventListener("click", () => {
-          const isOpen = question.getAttribute("aria-expanded") === "true";
-          question.setAttribute("aria-expanded", String(!isOpen));
-          question.classList.toggle("is-open", !isOpen);
-          answer.classList.toggle("is-open", !isOpen);
-          answer.style.maxHeight = isOpen ? "0px" : `${answer.scrollHeight}px`;
-        });
-      });
-    </script>
-  <script>
-const menuButton = document.querySelector(".btn-menu");
-const menu = document.querySelector("#main-menu");
-const navigation = document.querySelector(".site-nav");
-if (menuButton && menu && navigation) {
-  function setMenuOpen(open) { menu.hidden = !open; menuButton.setAttribute("aria-expanded", String(open)); menuButton.textContent = open ? "Close" : "Menu"; }
-  menuButton.addEventListener("click", () => setMenuOpen(menuButton.getAttribute("aria-expanded") !== "true"));
-  document.addEventListener("click", event => { if (!navigation.contains(event.target)) setMenuOpen(false); });
-  document.addEventListener("keydown", event => { if (event.key === "Escape" && !menu.hidden) { setMenuOpen(false); menuButton.focus(); } });
-}
-</script>
+</div>
+<main class="faq">
+<section aria-labelledby="faq-title">
+<p class="faq-kicker">FAQ</p>
+<h1 class="faq-title" id="faq-title">よくあるご質問</h1>
+<p class="faq-lead">ご依頼前によくいただくご質問をまとめました。</p>
+<div class="accordion-list">
+<div class="accordion-item">
+<button aria-controls="faq-answer-1" aria-expanded="false" class="accordion-question" type="button"><span class="label-q">Q.</span>どのような動画を依頼できますか？</button>
+<div class="accordion-answer" hidden="" id="faq-answer-1"><p><span class="label-a">A.</span>商品・サービスの紹介、イベントや講座の告知など、SNSやWebサイトに掲載する15秒・30秒の動画を制作します。</p></div>
+</div>
+<div class="accordion-item">
+<button aria-controls="faq-answer-2" aria-expanded="false" class="accordion-question" type="button"><span class="label-q">Q.</span>料金はいくらですか？</button>
+<div class="accordion-answer" hidden="" id="faq-answer-2"><p><span class="label-a">A.</span>15秒動画は20,000円、30秒動画は30,000円です。静止画1枚は10,000円、30秒動画＋静止画1枚のセットは36,000円です。すべて税別です。</p></div>
+</div>
+<div class="accordion-item">
+<button aria-controls="faq-answer-3" aria-expanded="false" class="accordion-question" type="button"><span class="label-q">Q.</span>基本料金には何が含まれますか？</button>
+<div class="accordion-answer" hidden="" id="faq-answer-3"><p><span class="label-a">A.</span>構成・動画編集・ナレーション・BGM・納品前の通常修正1回が含まれます。</p></div>
+</div>
+<div class="accordion-item">
+<button aria-controls="faq-answer-4" aria-expanded="false" class="accordion-question" type="button"><span class="label-q">Q.</span>依頼するときは何を用意すればよいですか？</button>
+<div class="accordion-answer" hidden="" id="faq-answer-4"><p><span class="label-a">A.</span>紹介内容と、文章・写真・ロゴなどの素材をご用意ください。掲載先・希望納期・動画の向きもお知らせください。</p></div>
+</div>
+<div class="accordion-item">
+<button aria-controls="faq-answer-5" aria-expanded="false" class="accordion-question" type="button"><span class="label-q">Q.</span>写真は何点まで使えますか？</button>
+<div class="accordion-answer" hidden="" id="faq-answer-5"><p><span class="label-a">A.</span>動画1本につき、写真などの静止画は最大5点です。6点以上を使用する制作は承っておりません。</p></div>
+</div>
+<div class="accordion-item">
+<button aria-controls="faq-answer-6" aria-expanded="false" class="accordion-question" type="button"><span class="label-q">Q.</span>キャラクターの外見やBGMは選べますか？</button>
+<div class="accordion-answer" hidden="" id="faq-answer-6"><p><span class="label-a">A.</span>キャラクターの外見とBGMは、それぞれ8種類からお選びいただけます。</p></div>
+</div>
+<div class="accordion-item">
+<button aria-controls="faq-answer-7" aria-expanded="false" class="accordion-question" type="button"><span class="label-q">Q.</span>縦型と横型の両方を作れますか？</button>
+<div class="accordion-answer" hidden="" id="faq-answer-7"><p><span class="label-a">A.</span>はい。同じ内容で両方を制作する場合、15秒動画は追加10,000円、30秒動画は追加20,000円です。追加料金は税別です。</p></div>
+</div>
+<div class="accordion-item">
+<button aria-controls="faq-answer-8" aria-expanded="false" class="accordion-question" type="button"><span class="label-q">Q.</span>修正はできますか？</button>
+<div class="accordion-answer" hidden="" id="faq-answer-8"><p><span class="label-a">A.</span>納品前の通常修正は1回まで基本料金に含みます。2回目以降は1回2,500円〜、構成変更・作り直しなどの大幅変更は10,000円〜です。内容確認後、作業前に提示します（税別）。</p></div>
+</div>
+<div class="accordion-item">
+<button aria-controls="faq-answer-9" aria-expanded="false" class="accordion-question" type="button"><span class="label-q">Q.</span>納期はどれくらいですか？</button>
+<div class="accordion-answer" hidden="" id="faq-answer-9"><p><span class="label-a">A.</span>ご希望の納期をお知らせください。制作内容と素材の準備状況を確認し、着手前にご案内します。</p></div>
+</div>
+<div class="accordion-item">
+<button aria-controls="faq-answer-10" aria-expanded="false" class="accordion-question" type="button"><span class="label-q">Q.</span>どのような形式で納品されますか？</button>
+<div class="accordion-answer" hidden="" id="faq-answer-10"><p><span class="label-a">A.</span>掲載先に合わせて、動画の制作サイズと納品形式を事前に確認します。</p></div>
+</div>
+<div class="accordion-item">
+<button aria-controls="faq-answer-11" aria-expanded="false" class="accordion-question" type="button"><span class="label-q">Q.</span>支払い方法・支払い時期は？</button>
+<div class="accordion-answer" hidden="" id="faq-answer-11"><p><span class="label-a">A.</span>お支払い方法と時期は、お見積もり時にご案内します。</p></div>
+</div>
+<div class="accordion-item">
+<button aria-controls="faq-answer-12" aria-expanded="false" class="accordion-question" type="button"><span class="label-q">Q.</span>納品後も修正できますか？</button>
+<div class="accordion-answer" hidden="" id="faq-answer-12"><p><span class="label-a">A.</span>納品後の修正は、内容を確認のうえ、対応可否と費用を別途ご案内します。</p></div>
+</div>
+<div class="accordion-item">
+<button aria-controls="faq-answer-13" aria-expanded="false" class="accordion-question" type="button"><span class="label-q">Q.</span>AIを使用していますか？</button>
+<div class="accordion-answer" hidden="" id="faq-answer-13"><p><span class="label-a">A.</span>文章・画像・音楽などの制作補助にAIを活用し、構成や編集、人による確認を加えて仕上げます。</p></div>
+</div>
+</div>
+</section>
+<div class="service-ctas service-ctas--single">
+<a class="btn btn-primary" href="contact.html">制作を相談する</a>
+</div>
+</main>
 <footer class="page-footer">
-      <img class="footer-cover-image" src="images/footer_cover.webp" alt="" aria-hidden="true">
-      <div class="copyright">
-        <nav class="footer-row" aria-label="フッターメニュー">
-          <a href="index.html">判読さとみのご案内</a>
-          <a href="contact.html">会社概要</a>
-          <a href="recruit.html">採用情報</a>
-          <a href="privacy.html">個人情報の取り扱い</a>
-        </nav>
-        <div class="footer-row">
-          <a href="https://www.instagram.com/shindenzu.master/" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://x.com/shindenzumaster/" target="_blank" rel="noopener noreferrer">X（旧Twitter）</a>
-          <a href="https://www.youtube.com/@shindenzu.master" target="_blank" rel="noopener noreferrer">YouTube</a>
-          <small>© 2026 HANDOKU SATOMI</small>
-        </div>
-      </div>
-    </footer>
-    </body>
+<div class="copyright">
+<nav aria-label="フッターメニュー" class="footer-row">
+<a href="index.html">判読さとみのご案内</a>
+<a href="contact.html">会社概要</a>
+<a href="recruit.html">採用情報</a>
+<a href="privacy.html">個人情報の取り扱い</a>
+</nav>
+<div class="footer-row">
+<a href="https://www.instagram.com/shindenzu.master/" rel="noopener noreferrer" target="_blank">Instagram</a>
+<a href="https://x.com/shindenzumaster/" rel="noopener noreferrer" target="_blank">X（旧Twitter）</a>
+<a href="https://www.youtube.com/@shindenzu.master" rel="noopener noreferrer" target="_blank">YouTube</a>
+<small>© 2026 HANDOKU SATOMI</small>
+</div>
+</div>
+</footer>
+<script defer="" src="js/main.js"></script></body>
 </html>
