@@ -466,7 +466,7 @@ main { padding: 24px 0 40px; }
 .accordion-question {
   display: block;
   width: 100%;
-  padding: 1.25rem 2.5rem 1.25rem 0;
+  padding: 1.25rem 2.5rem 1.25rem 1em; /* Q. の前に全角1文字分の余白 */
   color: #432;
   background-color: #f0f8f5;
   border: none;
@@ -1008,5 +1008,22 @@ main { padding: 24px 0 40px; }
     grid-template-columns: repeat(3, 160px);
     justify-content: center;
     max-width: 520px;
+  }
+}
+
+/* サービスページ：PCのBGM選択ボタンを横に広げ、名称を1行表示 */
+@media (min-width: 800px) {
+  .service-page .bgm-section .bgm-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 16px;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .service-page .bgm-section .bgm-item {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+  .service-page .bgm-section .bgm-item span {
+    white-space: nowrap;
   }
 }
