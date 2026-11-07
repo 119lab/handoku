@@ -31,7 +31,12 @@ for (const button of document.querySelectorAll('.accordion-question')) {
 // キャラクター画像の拡大
 for (const image of document.querySelectorAll('.character-grid img')) {
   image.addEventListener('click', () => {
-    image.closest('li').classList.toggle('is-enlarged');
+    const selected = image.closest('li');
+    const wasEnlarged = selected.classList.contains('is-enlarged');
+    document.querySelectorAll('.character-grid li.is-enlarged').forEach((item) => {
+      item.classList.remove('is-enlarged');
+    });
+    if (!wasEnlarged) selected.classList.add('is-enlarged');
   });
 }
 
@@ -69,4 +74,41 @@ if (demoButton) {
     const status = document.querySelector('#contact-demo-status');
     if (status) status.textContent = '入力内容や添付ファイルは送信していません。';
   });
+}
+
+// トップページ：3秒ごとに画像が左へ滑る自動スライドショー
+const homeSlideTrack = document.querySelector('.home-slide-track');
+if (homeSlideTrack) {
+  const slideCount = homeSlideTrack.children.length - 1; // 最後は1枚目の複製
+  let slideIndex = 0;
+  let moving = false;
+
+  // 最後の複製まで進んだら、アニメーションなしで1枚目に戻す
+  homeSlideTrack.addEventListener('transitionend', function (event) {
+    if (event.propertyName !== 'transform') return;
+    moving = false;
+    if (slideIndex === slideCount) {
+      homeSlideTrack.style.transition = 'none';
+      slideIndex = 0;
+      homeSlideTrack.style.transform = 'translateX(0)';
+      // 描画を確定してから、次回のスライド用に動きを戻す
+      void homeSlideTrack.offsetWidth;
+      homeSlideTrack.style.transition = '';
+    }
+  });
+
+  window.setInterval(function () {
+    if (moving) return;
+    moving = true;
+    slideIndex += 1;
+    homeSlideTrack.style.transform = 'translateX(-' + (slideIndex * 100) + '%)';
+    // 動きを減らす設定ではtransitionendが発生しない場合がある
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      moving = false;
+      if (slideIndex === slideCount) {
+        slideIndex = 0;
+        homeSlideTrack.style.transform = 'translateX(0)';
+      }
+    }
+  }, 3000);
 }
