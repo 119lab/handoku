@@ -463,7 +463,7 @@ main { padding: 24px 0 40px; }
 .accordion-question {
   display: block;
   width: 100%;
-  padding: 1.25rem 2.5rem 1.25rem 0;
+  padding: 1.25rem 2.5rem 1.25rem 1em;
   color: #432;
   background-color: #f0f8f5;
   border: none;
