@@ -1011,19 +1011,19 @@ main { padding: 24px 0 40px; }
   }
 }
 
-/* サービスページ：PCのBGM選択ボタンを横に広げ、名称を1行表示 */
-@media (min-width: 800px) {
+/* サービスページ：2列表示では曲名と視聴ボタンを1行に揃える */
+@media (min-width: 701px) {
   .service-page .bgm-section .bgm-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 16px;
-    margin-right: 0;
-    margin-left: 0;
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    column-gap: .75rem;
+    margin-inline: 0;
   }
   .service-page .bgm-section .bgm-item {
-    padding-right: 18px;
-    padding-left: 18px;
+    gap: .5rem;
+    padding-inline: .75rem;
   }
-  .service-page .bgm-section .bgm-item span {
+  .service-page .bgm-section .bgm-item > span,
+  .service-page .bgm-section .bgm-play {
     white-space: nowrap;
   }
 }
