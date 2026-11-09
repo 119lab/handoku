@@ -1011,6 +1011,24 @@ main { padding: 24px 0 40px; }
   }
 }
 
+/* PC：制作サンプルを横3列のまま大きく表示 */
+@media (min-width: 800px) and (hover: hover) and (pointer: fine) {
+  .home-page .video-samples .video-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 960px;
+  }
+
+  .home-page .video-samples .video-item {
+    width: auto;
+  }
+
+  .home-page .video-samples .video-item video {
+    height: min(30vw, 300px);
+    max-height: none;
+  }
+}
+
 /* サービスページ：2列表示では曲名と視聴ボタンを1行に揃える */
 @media (min-width: 701px) {
   .service-page .bgm-section .bgm-grid {
@@ -1026,4 +1044,47 @@ main { padding: 24px 0 40px; }
   .service-page .bgm-section .bgm-play {
     white-space: nowrap;
   }
+}
+
+/* トップページの動画拡大表示 */
+.video-preview-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #078029;
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #056b22;
+}
+
+.video-enlarge {
+  margin-top: 0.25rem;
+}
+
+#video-preview {
+  position: fixed;
+  inset: 0;
+  box-sizing: border-box;
+  width: min(960px, 90vw);
+  max-height: 90vh;
+  margin: auto;
+  padding: 12px;
+  border: 0;
+  border-radius: 12px;
+  overflow: auto;
+  background: #fff;
+}
+
+#video-preview::backdrop {
+  background: rgb(0 0 0 / 70%);
+}
+
+#video-preview form {
+  margin-bottom: 8px;
+  text-align: right;
+}
+
+#video-preview video {
+  display: block;
+  width: 100%;
+  max-height: 75vh;
+  background: #000;
 }
