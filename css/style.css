@@ -1011,24 +1011,6 @@ main { padding: 24px 0 40px; }
   }
 }
 
-/* PC：制作サンプルを横3列のまま大きく表示 */
-@media (min-width: 800px) and (hover: hover) and (pointer: fine) {
-  .home-page .video-samples .video-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-    max-width: 960px;
-  }
-
-  .home-page .video-samples .video-item {
-    width: auto;
-  }
-
-  .home-page .video-samples .video-item video {
-    height: min(30vw, 300px);
-    max-height: none;
-  }
-}
-
 /* サービスページ：2列表示では曲名と視聴ボタンを1行に揃える */
 @media (min-width: 701px) {
   .service-page .bgm-section .bgm-grid {
