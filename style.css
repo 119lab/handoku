@@ -1027,3 +1027,46 @@ main { padding: 24px 0 40px; }
     white-space: nowrap;
   }
 }
+
+/* トップページの動画拡大表示 */
+.video-preview-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #078029;
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #056b22;
+}
+
+.video-enlarge {
+  margin-top: 0.25rem;
+}
+
+#video-preview {
+  position: fixed;
+  inset: 0;
+  box-sizing: border-box;
+  width: min(960px, 90vw);
+  max-height: 90vh;
+  margin: auto;
+  padding: 12px;
+  border: 0;
+  border-radius: 12px;
+  overflow: auto;
+  background: #fff;
+}
+
+#video-preview::backdrop {
+  background: rgb(0 0 0 / 70%);
+}
+
+#video-preview form {
+  margin-bottom: 8px;
+  text-align: right;
+}
+
+#video-preview video {
+  display: block;
+  width: 100%;
+  max-height: 75vh;
+  background: #000;
+}

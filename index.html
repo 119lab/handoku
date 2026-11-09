@@ -14,7 +14,7 @@
 
 
 <!-- オリジナルCSS -->
-<link href="css/style.css?v=20261108landscape3" rel="stylesheet"/>
+<link href="css/style.css?v=20261109video-preview" rel="stylesheet"/>
 </head>
 <!-- body -->
 <body class="home-page service-page">
@@ -96,6 +96,7 @@
               サービス案内<br/>
               30秒／横型<br/>
 </figcaption>
+<button type="button" class="video-preview-button video-enlarge" aria-haspopup="dialog">拡大して見る</button>
 </figure>
 <figure class="video-item">
 <video aria-label="動画サンプル02" autoplay="" controls="" loop="" muted="" playsinline="" src="video/sample02.mp4"></video>
@@ -104,6 +105,7 @@
               商品案内<br/>
               15秒／縦型<br/>
 </figcaption>
+<button type="button" class="video-preview-button video-enlarge" aria-haspopup="dialog">拡大して見る</button>
 </figure>
 <figure class="video-item">
 <video aria-label="動画サンプル03" autoplay="" controls="" loop="" muted="" playsinline="" src="video/sample03.mp4"></video>
@@ -112,6 +114,7 @@
               Webサイト案内<br/>
               15秒／横型<br/>
 </figcaption>
+<button type="button" class="video-preview-button video-enlarge" aria-haspopup="dialog">拡大して見る</button>
 </figure>
 </div>
 </section>
@@ -164,5 +167,44 @@
 </div>
 </div>
 </footer>
-<script defer="" src="js/main.js?v=20261108slide3"></script></body>
+<script defer="" src="js/main.js?v=20261108slide3"></script>
+<dialog id="video-preview" aria-label="動画の拡大表示">
+  <form method="dialog">
+    <button type="submit" class="video-preview-button">閉じる</button>
+  </form>
+  <video controls playsinline></video>
+</dialog>
+<script>
+(() => {
+  const preview = document.querySelector("#video-preview");
+  const player = preview.querySelector("video");
+  const samples = [...document.querySelectorAll(".video-samples .video-item video")];
+  let pausedSamples = [];
+
+  document.querySelectorAll(".video-enlarge").forEach((button) => {
+    button.addEventListener("click", () => {
+      const source = button.closest("figure").querySelector("video");
+      player.src = source.currentSrc || source.src;
+      player.currentTime = source.currentTime;
+      player.muted = source.muted;
+      player.volume = source.volume;
+      player.loop = source.loop;
+
+      preview.showModal();
+      pausedSamples = samples.filter((sample) => !sample.paused);
+      pausedSamples.forEach((sample) => sample.pause());
+      player.play().catch(() => {});
+    });
+  });
+
+  preview.addEventListener("close", () => {
+    player.pause();
+    player.removeAttribute("src");
+    player.load();
+    pausedSamples.forEach((sample) => sample.play().catch(() => {}));
+    pausedSamples = [];
+  });
+})();
+</script>
+</body>
 </html>
