@@ -120,6 +120,16 @@ if (videoPreview) {
   const samples = [...document.querySelectorAll('.video-samples .video-item video')];
   let pausedSamples = [];
 
+  const players = [...samples, player];
+  players.forEach((current) => {
+    current.addEventListener('play', () => {
+      if (current.paused) return;
+      players.forEach((other) => {
+        if (other !== current) other.pause();
+      });
+    });
+  });
+
   document.querySelectorAll('.video-enlarge').forEach((button) => {
     button.addEventListener('click', () => {
       const source = button.closest('figure').querySelector('video');
