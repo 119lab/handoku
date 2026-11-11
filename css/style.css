@@ -301,6 +301,9 @@ main { padding: 24px 0 40px; }
 ------------------------------- */
 .cover { text-align: center; }
 .about {
+  width: 92%;
+  max-width: 920px;
+  margin-inline: auto;
   background-color: #e9f7f2;
   padding: 28px 4%;
   text-align: center;
@@ -1068,4 +1071,14 @@ main { padding: 24px 0 40px; }
   width: 100%;
   max-height: 75vh;
   background: #000;
+}
+
+/* 全ページ：PC表示のヘッダー画像とフッター背景 */
+@media (min-width: 1024px) {
+  .service-page .top-header,
+  .service-page .page-footer {
+    width: 92%;
+    max-width: 920px;
+    margin-inline: auto;
+  }
 }
