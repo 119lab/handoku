@@ -786,7 +786,6 @@ main { padding: 24px 0 40px; }
   min-height: clamp(90px, 9vw, 150px);
   margin-top: 3rem;
   padding: 1.125rem 0;
-  background-image: url("images/footer_cover.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center bottom;
