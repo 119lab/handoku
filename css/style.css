@@ -650,7 +650,11 @@ main { padding: 24px 0 40px; }
   background: #d7f4dc;
   color: #222;
 }
-.service-page .bgm-item span { font-weight: 700; }
+.service-page .bgm-item span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-weight: 700;
+}
 .service-page .bgm-play {
   flex: 0 0 auto;
   padding: .25rem .8rem;
@@ -1016,7 +1020,7 @@ main { padding: 24px 0 40px; }
 /* サービスページ：2列表示では曲名と視聴ボタンを1行に揃える */
 @media (min-width: 701px) {
   .service-page .bgm-section .bgm-grid {
-    grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: .75rem;
     margin-inline: 0;
   }
@@ -1024,7 +1028,6 @@ main { padding: 24px 0 40px; }
     gap: .5rem;
     padding-inline: .75rem;
   }
-  .service-page .bgm-section .bgm-item > span,
   .service-page .bgm-section .bgm-play {
     white-space: nowrap;
   }
@@ -1077,6 +1080,7 @@ main { padding: 24px 0 40px; }
 @media (min-width: 1024px) {
   .service-page .top-header,
   .service-page > main,
+  .service-page > .service-main,
   .service-page .page-footer,
   .home-page .hero-layout {
     width: 92%;
@@ -1088,4 +1092,14 @@ main { padding: 24px 0 40px; }
   .home-page > main > .wrapper {
     width: 100%;
   }
+}
+
+/* 端のキャラクター画像は列の内側に拡大 */
+@media (min-width: 701px) {
+  .service-page .character-grid li:nth-child(4n + 1) img { transform-origin: left center; }
+  .service-page .character-grid li:nth-child(4n) img { transform-origin: right center; }
+}
+@media (max-width: 700px) {
+  .service-page .character-grid li:nth-child(odd) img { transform-origin: left center; }
+  .service-page .character-grid li:nth-child(even) img { transform-origin: right center; }
 }
