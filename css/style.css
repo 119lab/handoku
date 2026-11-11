@@ -1073,12 +1073,19 @@ main { padding: 24px 0 40px; }
   background: #000;
 }
 
-/* 全ページ：PC表示のヘッダー画像とフッター背景 */
+/* 全ページ：PC表示のヘッダー・本文・フッターの幅 */
 @media (min-width: 1024px) {
   .service-page .top-header,
-  .service-page .page-footer {
+  .service-page > main,
+  .service-page .page-footer,
+  .home-page .hero-layout {
     width: 92%;
     max-width: 920px;
     margin-inline: auto;
+  }
+
+  .home-page > main > .about,
+  .home-page > main > .wrapper {
+    width: 100%;
   }
 }
