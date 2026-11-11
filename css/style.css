@@ -305,6 +305,7 @@ main { padding: 24px 0 40px; }
   max-width: 920px;
   margin-inline: auto;
   background-color: #e9f7f2;
+  border-radius: 16px;
   padding: 28px 4%;
   text-align: center;
 }
